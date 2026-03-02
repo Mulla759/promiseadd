@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Promise. — The app that helps you keep your word and keep your people. Join the waitlist.">
+<meta name="theme-color" content="#FAF8F5">
+<meta http-equiv="Content-Security-Policy"
+  content="default-src 'self';
+  script-src 'self' 'unsafe-inline';
+  style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+  font-src https://fonts.gstatic.com;
+  img-src https: data:;
+  connect-src https://script.google.com https://script.googleusercontent.com;
+  media-src 'self';">
+<title>Promise. — Keep your word. Keep your people.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Fira+Code:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Background Music -->
+<audio id="bgMusic" loop preload="auto">
+  <source src="Golden Slumbers X Carry that weight.mp3" type="audio/mpeg">
+</audio>
+
+<!-- Progress Bar -->
+<div class="progress-bar" id="progressBar"></div>
+
+<!-- Navigation -->
+<nav class="nav" id="nav">
+  <a href="#" class="nav-logo">Promise<span class="dot">.</span></a>
+  <a href="#waitlist" class="nav-cta">Join Waitlist</a>
+</nav>
+
+<!-- Music Pill (click to play/pause) -->
+<div class="music-pill paused" id="musicPill" role="button" tabindex="0" aria-label="Toggle background music">
+  <div class="music-bars">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+  </div>
+  <span>Golden Slumber × Carry That Weight</span>
+</div>
+
+
+<!-- ═══════════════════════════════════
+     SCENE I — THE HOOK (TEXT BUBBLES)
+     ═══════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-phone-frame">
+    <div class="chat-container">
+      <div class="phone-notch"></div>
+      <div class="phone-header">
+        <div class="phone-avatar">K</div>
+        <div>
+          <div class="phone-name">Khalid</div>
+          <div class="phone-status">last seen 3 weeks ago</div>
+        </div>
+      </div>
+      <div class="chat-messages" id="chatMessages">
+        <div class="bubble bubble-sent" id="b1">
+          Hey you coming to the dinner Saturday?
+          <div class="bubble-time">Tuesday 3:42 PM</div>
+          <div class="bubble-read">Read ✓✓</div>
+        </div>
+
+        <div class="typing-row" id="typing1">
+          <div class="typing-dot"></div>
+          <div class="typing-dot"></div>
+          <div class="typing-dot"></div>
+        </div>
+
+        <div class="no-response" id="nr1">// no response</div>
+
+        <div class="time-gap" id="tg1">— 3 weeks later —</div>
+
+        <div class="bubble bubble-sent" id="b2">
+          Miss you bro. It's been a while
+          <div class="bubble-time">Sunday 11:17 PM</div>
+          <div class="bubble-read">Delivered</div>
+        </div>
+
+        <div class="no-response" id="nr2">// silence</div>
+      </div>
+    </div>
+  </div>
+
+  <h1 data-reveal>Most friendships don't end suddenly<span class="coral-punct">.</span></h1>
+  <p class="hero-sub" data-reveal>They end with unkept words and promises nobody held you to.</p>
+
+  <div class="scroll-cue">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════
+     SCENE II — THE EROSION
+     ═══════════════════════════════════ -->
+<section class="narrative-section">
+  <div class="narrative-text" data-reveal>
+    "I'll call you this weekend<span class="coral-punct">.</span>"<br>
+    <span class="muted">"Let's catch up — for real this time<span class="coral-punct">.</span>"</span><br>
+    <span class="faded">"Yeah save me a spot, I'm coming<span class="coral-punct">.</span>"</span>
+  </div>
+</section>
+
+<section class="narrative-section" style="padding-top: 40px;">
+  <p class="narrative-text" data-reveal style="font-size: clamp(1.1rem, 2vw, 1.5rem); color: var(--muted);">
+    Not a fight. Not a fallout.<br>
+    Just too busy. Too afraid.<br>
+    Too convinced the other person didn't care either.
+  </p>
+</section>
+
+
+<!-- ═══════════════════════════════════
+     SCENE III — NAMES THAT FADE
+     ═══════════════════════════════════ -->
+<section class="narrative-section" style="padding-top: 20px;">
+  <div class="fading-list" id="fadingList">
+    <div class="fading-item" data-fade="0">Your college roommate</div>
+    <div class="fading-item" data-fade="1">The friend who always checked on you</div>
+    <div class="fading-item" data-fade="2">Your childhood best friend</div>
+    <div class="fading-item" data-fade="3">That group chat nobody texts in anymore</div>
+  </div>
+  <p class="narrative-text" data-reveal style="margin-top: 24px;">
+    Slowly, those bridges <span style="color: var(--accent);">evaporate</span><span class="coral-punct">.</span>
+  </p>
+</section>
+
+
+<!-- Divider -->
+<div class="section-divider">
+  <div class="divider-line" data-reveal></div>
+</div>
+
+
+<!-- ═══════════════════════════════════
+     SCENE IV — THE TURN
+     ═══════════════════════════════════ -->
+<section class="turn-section">
+  <p class="turn-question" data-reveal>But what if the problem was never the distance?</p>
+  <div class="turn-statement" data-reveal>
+    <h2>What if nobody <span class="underline">held you accountable</span> to the promises you made<span class="coral-punct">?</span></h2>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════
+     SCENE V — THE REVEAL
+     ═══════════════════════════════════ -->
+<section class="reveal-section">
+  <div class="big-logo" data-reveal>Promise<span class="dot">.</span></div>
+  <p class="tagline" data-reveal>The app that helps you come back, not give up.</p>
+</section>
+
+
+<!-- ═══════════════════════════════════
+     SCENE VI — FEATURES (POLAROIDS)
+     ═══════════════════════════════════ -->
+<section class="features-section">
+  <div class="features-side-label">HOW IT WORKS</div>
+
+  <div class="features-header" data-reveal>
+    <h2>How it works<span class="coral-punct">.</span></h2>
+    <p>Commitments that are made, tracked, and honored — for your relationships and your goals.</p>
+  </div>
+
+  <div class="polaroid-canvas">
+
+    <!-- Card 1: Promise to Others -->
+    <div class="polaroid polaroid--1" data-reveal>
+      <div class="polaroid-frame">
+        <img class="polaroid-img" src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=440&h=440&fit=crop&crop=faces" alt="Friends laughing together" loading="lazy" decoding="async">
+        <div class="polaroid-label">VOL. 01</div>
+      </div>
+      <div class="polaroid-text">
+        <span class="dot-bullet"></span>
+        <h3>Promise to Others<span class="coral-punct">.</span></h3>
+        <p>Two-way commitments with the people who matter. Both sides confirm completion. No more empty "let's hang soon."</p>
+      </div>
+    </div>
+
+    <!-- Card 2: Promise to Self -->
+    <div class="polaroid polaroid--2" data-reveal>
+      <div class="polaroid-frame">
+        <img class="polaroid-img" src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=440&h=440&fit=crop" alt="Person journaling at desk" loading="lazy" decoding="async">
+        <div class="polaroid-label">VOL. 02</div>
+      </div>
+      <div class="polaroid-text">
+        <span class="dot-bullet"></span>
+        <h3>Promise to Self<span class="coral-punct">.</span></h3>
+        <p>Personal goals only you can see — or share with the world. Your word matters even when it's whispered.</p>
+      </div>
+    </div>
+
+    <!-- Card 3: Promise to World -->
+    <div class="polaroid polaroid--3" data-reveal>
+      <div class="polaroid-frame">
+        <img class="polaroid-img" src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=440&h=440&fit=crop" alt="Volunteers working together" loading="lazy" decoding="async">
+        <div class="polaroid-label">VOL. 03</div>
+      </div>
+      <div class="polaroid-text">
+        <span class="dot-bullet"></span>
+        <h3>Promise to the World<span class="coral-punct">.</span></h3>
+        <p>Commit to something bigger. Donate, volunteer, create. Finish one, and we challenge you to go further.</p>
+      </div>
+    </div>
+
+    <!-- Card 4: Accountability -->
+    <div class="polaroid polaroid--4" data-reveal>
+      <div class="polaroid-frame">
+        <img class="polaroid-img" src="https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=440&h=440&fit=crop" alt="Focused planning and tracking" loading="lazy" decoding="async">
+        <div class="polaroid-label">VOL. 04</div>
+      </div>
+      <div class="polaroid-text">
+        <span class="dot-bullet"></span>
+        <h3>Track & Grow<span class="coral-punct">.</span></h3>
+        <p>Live feed, countdown timers, and a reliability score that reflects who you are at your word. Not a game — a mirror.</p>
+      </div>
+    </div>
+
+    <!-- System note -->
+    <div class="system-note" data-reveal>
+      <div class="system-note-label">System Note / 01</div>
+      <p>"The beauty of a promise lies not just in its fulfillment, but in the intentionality of the journey towards it."</p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════
+     SCENE VII — REFRAMING
+     ═══════════════════════════════════ -->
+<section class="reframe-section">
+  <div class="reframe-header" data-reveal>
+    <h2>Miss a deadline<span class="coral-punct">?</span></h2>
+    <p>We don't punish. We reframe. AI helps you adjust — not guilt-trip.</p>
+  </div>
+
+  <div class="reframe-demo" data-reveal>
+    <div class="reframe-original">
+      <div class="reframe-badge">MISSED</div>
+      <div class="reframe-label">Original Promise</div>
+      <div class="reframe-promise">"Call Mom every Sunday for 3 months."</div>
+    </div>
+
+    <div class="reframe-arrow">↓</div>
+
+    <div class="solutions-stack">
+      <div class="sol-card">
+        <div class="sol-type">Gentle</div>
+        <div class="sol-text">"Send Mom a voice note every Sunday for 6 weeks."</div>
+        <div class="sol-reason">Lower barrier. Same love.</div>
+      </div>
+      <div class="sol-card">
+        <div class="sol-type">Balanced</div>
+        <div class="sol-text">"Call Mom every other Sunday for 3 months."</div>
+        <div class="sol-reason">Realistic rhythm you'll actually keep.</div>
+      </div>
+      <div class="sol-card">
+        <div class="sol-type">Creative</div>
+        <div class="sol-text">"Write Mom a letter once a month for 6 months."</div>
+        <div class="sol-reason">Different channel, deeper connection.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════
+     SCENE VIII — LIVE FEED TERMINAL
+     ═══════════════════════════════════ -->
+<section class="terminal-section">
+  <div class="terminal-header" data-reveal>
+    <h2>Promises happening right now<span class="coral-punct">.</span></h2>
+  </div>
+
+  <div class="terminal" data-reveal>
+    <div class="terminal-bar">
+      <div class="terminal-dots"><span></span><span></span><span></span></div>
+      <div class="terminal-title">promise.live/feed</div>
+      <div class="live-dot"></div>
+    </div>
+    <div class="terminal-feed">
+      <div class="feed-scroll" id="feedScroll">
+        <div class="feed-entry"><span class="feed-tag completed">COMPLETED</span> Khalid completed his promise to meditate daily</div>
+        <div class="feed-entry"><span class="feed-tag created">CREATED</span> Anonymous user committed to running a 5K</div>
+        <div class="feed-entry"><span class="feed-tag completed">COMPLETED</span> Sara kept her promise to call her sister weekly</div>
+        <div class="feed-entry"><span class="feed-tag revised">REVISED</span> Omar reframed his reading goal after a busy month</div>
+        <div class="feed-entry"><span class="feed-tag created">CREATED</span> Anonymous user promised to volunteer 10 hours</div>
+        <div class="feed-entry"><span class="feed-tag completed">COMPLETED</span> Lina completed her promise to donate $200</div>
+        <div class="feed-entry"><span class="feed-tag created">CREATED</span> Salman made a promise to Khalid</div>
+        <div class="feed-entry"><span class="feed-tag completed">COMPLETED</span> Anonymous user reached 50% of their goal</div>
+        <div class="feed-entry"><span class="feed-tag revised">REVISED</span> Nadia adjusted her fitness promise — new deadline set</div>
+        <div class="feed-entry"><span class="feed-tag created">CREATED</span> Anonymous user committed to journaling every night</div>
+        <div class="feed-entry"><span class="feed-tag completed">COMPLETED</span> Tariq kept his promise to attend every team meeting</div>
+        <div class="feed-entry"><span class="feed-tag created">CREATED</span> Anonymous user promised to learn 50 ASL signs</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════
+     SCENE IX — CLOSING + WAITLIST
+     ═══════════════════════════════════ -->
+<section class="waitlist-section" id="waitlist">
+  <div class="wl-closing-text" data-reveal>
+    <h2>The people who matter are still one kept promise away<span class="coral-punct">.</span></h2>
+    <p>Don't let another year pass wondering what happened.</p>
+  </div>
+
+  <div class="ticket" data-reveal>
+    <!-- LEFT: Visual zone with WebGL halftone -->
+    <div class="ticket-visual">
+      <canvas id="ticketCanvas"></canvas>
+      <div class="ticket-overlay">
+        <div class="ticket-overlay-top">
+          <span>P R O M I S E</span>
+          <span class="sub">E A R L Y &nbsp; A C C E S S</span>
+        </div>
+        <div class="ticket-overlay-bottom">
+          <div class="big-word">Promise<span class="dot">.</span></div>
+          <div class="tag">KEEP YOUR WORD. KEEP YOUR PEOPLE.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: Data zone with form -->
+    <div class="ticket-data">
+      <div class="td-grid">
+        <div class="td-label">Type</div><div class="td-sep">&gt;</div><div class="td-value">EARLY ACCESS</div>
+        <div class="td-label">Access</div><div class="td-sep">&gt;</div><div class="td-value"><span class="accent-text">ALL FEATURES</span></div>
+        <div style="grid-column: 1/-1; height: 4px;"></div>
+        <div class="td-label">Date</div><div class="td-sep">&gt;</div><div class="td-value">2026</div>
+        <div class="td-label">Build</div><div class="td-sep">&gt;</div><div class="td-value">RELATIONSHIPS + GOALS</div>
+        <div class="td-label">Status</div><div class="td-sep">&gt;</div><div class="td-value"><span class="accent-text">OPEN</span></div>
+      </div>
+
+      <div class="td-divider">LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL</div>
+
+      <div class="td-form-label">Join the waitlist<span class="coral-punct">.</span></div>
+      <input type="email" class="td-input" placeholder="your@email.com">
+      <button class="td-btn" id="waitlistBtn">Make a Promise</button>
+      <div class="form-msg" id="formMsg"></div>
+
+      <div class="td-footer">
+        <div class="td-footer-row">
+          <span>PROMISE. <span class="td-square-bullet"></span> EARLY ACCESS</span>
+        </div>
+        <div class="td-footer-row" style="opacity: 0.6;">
+          <span>REFRAME. REBUILD. KEEP GOING.</span>
+          <span>YOUR DATA STAYS YOURS</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Footer -->
+<div class="site-footer">
+  <div class="footer-logo">Promise<span class="dot">.</span></div>
+  <div class="footer-copy">© 2026 Promise. All rights reserved.</div>
+</div>
+
+
+<!-- ═══════════════════════════════════
+     SCRIPTS
+     ═══════════════════════════════════ -->
+<script>
+  // ===== BACKGROUND MUSIC =====
+  (function initMusic() {
+    var audio = document.getElementById('bgMusic');
+    var pill = document.getElementById('musicPill');
+    var isPlaying = false;
+
+    function toggleMusic() {
+      if (isPlaying) {
+        audio.pause();
+        pill.classList.add('paused');
+        isPlaying = false;
+      } else {
+        audio.volume = 0.35;
+        audio.play().then(function() {
+          pill.classList.remove('paused');
+          isPlaying = true;
+        }).catch(function() {
+          // Browser blocked autoplay — user needs to click again
+        });
+      }
+    }
+
+    pill.addEventListener('click', toggleMusic);
+    pill.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggleMusic();
+      }
+    });
+
+    // Auto-start music on first user interaction anywhere on the page
+    function autoStart() {
+      if (!isPlaying) {
+        audio.volume = 0.35;
+        audio.play().then(function() {
+          pill.classList.remove('paused');
+          isPlaying = true;
+        }).catch(function() {});
+      }
+      document.removeEventListener('click', autoStart);
+      document.removeEventListener('scroll', autoStart);
+      document.removeEventListener('touchstart', autoStart);
+    }
+
+    document.addEventListener('click', autoStart, { once: true });
+    document.addEventListener('scroll', autoStart, { once: true });
+    document.addEventListener('touchstart', autoStart, { once: true });
+  })();
+
+  // ===== NAV SCROLL =====
+  var nav = document.getElementById('nav');
+  var pb = document.getElementById('progressBar');
+  var scrollTicking = false;
+
+  window.addEventListener('scroll', function() {
+    if (!scrollTicking) {
+      requestAnimationFrame(function() {
+        nav.classList.toggle('scrolled', window.scrollY > 20);
+        var pct = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+        pb.style.width = pct + '%';
+        scrollTicking = false;
+      });
+      scrollTicking = true;
+    }
+  }, { passive: true });
+
+  // ===== SCROLL REVEAL =====
+  var reveals = document.querySelectorAll('[data-reveal]');
+  var revealObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+  reveals.forEach(function(el) { revealObserver.observe(el); });
+
+  // ===== CHAT BUBBLE SEQUENCE =====
+  function runChatSequence() {
+    var steps = [
+      { id: 'b1', delay: 600 },
+      { id: 'typing1', delay: 2000 },
+      { id: 'nr1', delay: 3800 },
+      { id: 'tg1', delay: 5000 },
+      { id: 'b2', delay: 6200 },
+      { id: 'nr2', delay: 8000 },
+    ];
+    steps.forEach(function(s) {
+      setTimeout(function() {
+        var el = document.getElementById(s.id);
+        if (el) el.classList.add('show');
+        if (s.id === 'nr1') {
+          setTimeout(function() {
+            document.getElementById('typing1').classList.remove('show');
+          }, 600);
+        }
+      }, s.delay);
+    });
+  }
+  setTimeout(runChatSequence, 400);
+
+  // ===== FADING NAMES =====
+  var fadingList = document.getElementById('fadingList');
+  var fadeObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        var items = entry.target.querySelectorAll('.fading-item');
+        items.forEach(function(item, i) {
+          setTimeout(function() {
+            item.classList.add('visible');
+            setTimeout(function() { item.classList.add('gone'); }, 1800 + i * 150);
+          }, i * 500);
+        });
+      }
+    });
+  }, { threshold: 0.3 });
+  fadeObserver.observe(fadingList);
+
+  // ===== POLAROID STAGGER =====
+  document.querySelectorAll('.polaroid').forEach(function(p, i) {
+    p.style.transitionDelay = (i * 0.15) + 's';
+  });
+
+  // ===== DUPLICATE FEED FOR SEAMLESS LOOP =====
+  var feedScroll = document.getElementById('feedScroll');
+  feedScroll.innerHTML += feedScroll.innerHTML;
+
+  // ===== WEBGL HALFTONE CANVAS (TICKET) =====
+  (function initTicketCanvas() {
+    var canvas = document.getElementById('ticketCanvas');
+    if (!canvas) return;
+
+    // Check for WebGL support — fall back gracefully
+    var gl = canvas.getContext('webgl', { antialias: false, powerPreference: 'low-power' });
+    if (!gl) {
+      // Fallback: solid background, no canvas needed
+      canvas.style.display = 'none';
+      return;
+    }
+
+    function resizeCanvas() {
+      var rect = canvas.parentElement.getBoundingClientRect();
+      var dpr = Math.min(window.devicePixelRatio || 1, 2); // Cap at 2x for performance
+      canvas.width = rect.width * dpr;
+      canvas.height = rect.height * dpr;
+      gl.viewport(0, 0, canvas.width, canvas.height);
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    var vs = 'attribute vec4 aPos; void main() { gl_Position = aPos; }';
+
+    var fs = [
+      'precision mediump float;',
+      'uniform vec2 u_res;',
+      'uniform float u_time;',
+      'vec3 permute(vec3 x) { return mod(((x*34.0)+1.0)*x, 289.0); }',
+      'float snoise(vec2 v) {',
+      '  const vec4 C = vec4(0.211324865405187, 0.366025403784439, -0.577350269189626, 0.024390243902439);',
+      '  vec2 i = floor(v + dot(v, C.yy));',
+      '  vec2 x0 = v - i + dot(i, C.xx);',
+      '  vec2 i1 = (x0.x > x0.y) ? vec2(1.0, 0.0) : vec2(0.0, 1.0);',
+      '  vec4 x12 = x0.xyxy + C.xxzz;',
+      '  x12.xy -= i1;',
+      '  i = mod(i, 289.0);',
+      '  vec3 p = permute(permute(i.y + vec3(0.0, i1.y, 1.0)) + i.x + vec3(0.0, i1.x, 1.0));',
+      '  vec3 m = max(0.5 - vec3(dot(x0,x0), dot(x12.xy,x12.xy), dot(x12.zw,x12.zw)), 0.0);',
+      '  m = m*m; m = m*m;',
+      '  vec3 x = 2.0 * fract(p * C.www) - 1.0;',
+      '  vec3 h = abs(x) - 0.5;',
+      '  vec3 ox = floor(x + 0.5);',
+      '  vec3 a0 = x - ox;',
+      '  m *= 1.79284291400159 - 0.85373472095314 * (a0*a0 + h*h);',
+      '  vec3 g;',
+      '  g.x = a0.x * x0.x + h.x * x0.y;',
+      '  g.yz = a0.yz * x12.xz + h.yz * x12.yw;',
+      '  return 130.0 * dot(m, g);',
+      '}',
+      'void main() {',
+      '  vec2 st = gl_FragCoord.xy / u_res.xy;',
+      '  st.x *= u_res.x / u_res.y;',
+      '  float scale = 50.0;',
+      '  vec2 gridUv = st * scale;',
+      '  vec2 id = floor(gridUv);',
+      '  vec2 fractUv = fract(gridUv) - 0.5;',
+      '  float t = u_time * 0.15;',
+      '  float n = snoise(id * 0.09 + vec2(t, t * 0.4));',
+      '  float finalN = n * 0.5 + 0.5;',
+      '  float radius = smoothstep(0.25, 0.75, finalN) * 0.44;',
+      '  float dist = length(fractUv);',
+      '  float dotAlpha = 1.0 - smoothstep(radius - 0.08, radius + 0.08, dist);',
+      '  vec3 col = vec3(0.956, 0.517, 0.372);',
+      '  gl_FragColor = vec4(col, dotAlpha * 0.92);',
+      '}'
+    ].join('\n');
+
+    function makeShader(type, src) {
+      var s = gl.createShader(type);
+      gl.shaderSource(s, src);
+      gl.compileShader(s);
+      return s;
+    }
+
+    var prog = gl.createProgram();
+    gl.attachShader(prog, makeShader(gl.VERTEX_SHADER, vs));
+    gl.attachShader(prog, makeShader(gl.FRAGMENT_SHADER, fs));
+    gl.linkProgram(prog);
+
+    var buf = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,1,1,1,-1,-1,1,-1]), gl.STATIC_DRAW);
+
+    var posLoc = gl.getAttribLocation(prog, 'aPos');
+    var resLoc = gl.getUniformLocation(prog, 'u_res');
+    var timeLoc = gl.getUniformLocation(prog, 'u_time');
+
+    // Only render when canvas is visible
+    var canvasVisible = false;
+    var canvasObserver = new IntersectionObserver(function(entries) {
+      canvasVisible = entries[0].isIntersecting;
+    }, { threshold: 0 });
+    canvasObserver.observe(canvas);
+
+    function render(time) {
+      requestAnimationFrame(render);
+      if (!canvasVisible) return;
+      time *= 0.001;
+      gl.viewport(0, 0, canvas.width, canvas.height);
+      gl.clearColor(0.102, 0.102, 0.18, 1);
+      gl.clear(gl.COLOR_BUFFER_BIT);
+      gl.useProgram(prog);
+      gl.enableVertexAttribArray(posLoc);
+      gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+      gl.vertexAttribPointer(posLoc, 2, gl.FLOAT, false, 0, 0);
+      gl.uniform2f(resLoc, canvas.width, canvas.height);
+      gl.uniform1f(timeLoc, time);
+      gl.enable(gl.BLEND);
+      gl.blendFunc(gl.SRC_ALPHA, gl.ONE_MINUS_SRC_ALPHA);
+      gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+    }
+    requestAnimationFrame(render);
+  })();
+
+  // ===== WAITLIST FORM SUBMISSION =====
+  (function initWaitlist() {
+    // *** PASTE YOUR APPS SCRIPT DEPLOYMENT URL BELOW ***
+    var SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzDumS7qvlzBODGN1iveyz9psOT6aR4ULN5cycLzKGNzLIjvqdWslVATA0atWBFW9wFzg/exec';
+
+    var emailInput = document.querySelector('.td-input');
+    var btn = document.getElementById('waitlistBtn');
+    var msg = document.getElementById('formMsg');
+    var cooldown = false;
+
+    function sanitize(str) {
+      return str.replace(/[<>"'&]/g, '').trim().toLowerCase();
+    }
+
+    function isValidEmail(email) {
+      return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) && email.length <= 254;
+    }
+
+    function showMsg(text, type) {
+      msg.textContent = text;
+      msg.className = 'form-msg ' + type;
+    }
+
+    function submit() {
+      if (cooldown) return;
+
+      var raw = emailInput.value || '';
+      var email = sanitize(raw);
+
+      if (!email) {
+        showMsg('Please enter your email.', 'error');
+        return;
+      }
+
+      if (!isValidEmail(email)) {
+        showMsg('Please enter a valid email address.', 'error');
+        return;
+      }
+
+      // Rate limit
+      cooldown = true;
+      btn.disabled = true;
+      btn.classList.add('loading');
+      btn.textContent = 'Sending...';
+      msg.className = 'form-msg';
+      msg.textContent = '';
+
+      fetch(SCRIPT_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify({ email: email })
+      })
+      .then(function(res) { return res.json(); })
+      .then(function(data) {
+        if (data.status === 'success') {
+          showMsg("You're on the list!", 'success');
+          emailInput.value = '';
+        } else if (data.status === 'duplicate') {
+          showMsg('You\'re already registered!', 'success');
+        } else {
+          showMsg(data.message || 'Something went wrong, try again.', 'error');
+        }
+      })
+      .catch(function() {
+        showMsg('Something went wrong, try again.', 'error');
+      })
+      .finally(function() {
+        btn.textContent = 'Make a Promise';
+        btn.classList.remove('loading');
+        setTimeout(function() {
+          btn.disabled = false;
+          cooldown = false;
+        }, 5000);
+      });
+    }
+
+    btn.addEventListener('click', submit);
+    emailInput.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') submit();
+    });
+  })();
+</script>
+</body>
+</html>
